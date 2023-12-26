@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Latency data</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 20px;
+        }
+
+        .error-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background-color: red;
+            color: white;
+            text-align: center;
+        }
+
+        #colorDiv {
+            width: 100%;
+            height: 100px;
+            background-color: black;
+<!--            transition: background-color 0.5s;-->
+        }
+    </style>
+</head>
+<body>
+    <div id="colorDiv" onmousedown="changeColor()"></div>
+    <br>
+
+    <div class="error-container"></div>
+    <label for="portList">Select port:</label>
+    <select id="portList"></select>
+    <button id="startReading" onclick="startReading()">start reading</button>
+
+    <button id="resetData" onclick="resetData()">reset data</button>
+
+    <label for="chartSize">Show latest:</label>
+    <select id="chartSize">
+        <option value="200">200</option>
+        <option value="500">500</option>
+        <option value="700">700</option>
+        <option value="1000">1000</option>
+    </select>
+
+    <canvas id="myChart"></canvas>
+
+    <div style="margin: 20px;">
+        <div id="averageValue"></div>
+        <div id="minValue"></div>
+        <div id="maxValue"></div>
+        <div id="standardDeviationValue"></div>
+        <div id="coefficientOfVariation"></div>
+        <div id="pointsCount"></div>
+    </div>
+
+    <div id="errorLog"></div>
+
+    <script src="/static/chart.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
